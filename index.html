@@ -1,2 +1,138 @@
-<h1>Taskmanager</h1>
-<a href="https://programmer-s-picnic.github.io/taskmanager/task_entry/">Task Entry</a>
+<!-- <h1>Taskmanager</h1>
+<a href="https://programmer-s-picnic.github.io/taskmanager/task_entry/">Task Entry</a> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SuperStar Task Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1 class="logo-title">
+            <img src="designpics/icon.jpg" alt="Logo" class="logo">
+            <span>SuperStar Task Manager</span>
+        </h1>
+
+        <div class="search-box">
+            <button type="button" class="logout-btn">Logout</button>
+            <input type="search" name="search" placeholder="Search tasks...">
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="task-section">
+            <h2>My Tasks</h2>
+
+            <div class="date-box">
+                <label for="task-date">Select Date</label>
+                <input type="date" id="task-date" name="date">
+            </div>
+
+           
+
+            <div class="today-task">
+                <h2>Today Tasks</h2>
+
+                <div class="task-navigation">
+                    <button type="button" class="arrow-btn" id="prevTask">
+                        &#8592;
+                    </button>
+
+                    <button type="button" class="arrow-btn" id="nextTask">
+                        &#8594;
+                    </button>
+                </div>
+
+                <div class="today-task-content">
+                    <!-- Today's tasks yahan dikhenge -->
+                </div>
+            </div>
+
+            <div class="task-card">
+                <h3>Upcoming Tasks</h3>
+                <p>Your upcoming tasks will appear here.</p>
+            </div>
+        </section>
+
+        <section class="calendar-section">
+            <h2>Calendar</h2>
+
+            <div class="calendar-header">
+                <button type="button">&lt;</button>
+                <h3>October 2026</h3>
+                <button type="button">&gt;</button>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day">Sun</div>
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thu</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="date">1</div>
+                <div class="date">2</div>
+                <div class="date">3</div>
+
+                <div class="date">4</div>
+                <div class="date">5</div>
+                <div class="date">6</div>
+                <div class="date">7</div>
+                <div class="date">8</div>
+                <div class="date">9</div>
+                <div class="date">10</div>
+
+                <div class="date">11</div>
+                <div class="date">12</div>
+                <div class="date">13</div>
+                <div class="date">14</div>
+                <div class="date">15</div>
+                <div class="date">16</div>
+                <div class="date">17</div>
+
+                <div class="date">18</div>
+                <div class="date">19</div>
+                <div class="date">20</div>
+                <div class="date">21</div>
+                <div class="date">22</div>
+                <div class="date">23</div>
+                <div class="date">24</div>
+
+                <div class="date">25</div>
+                <div class="date">26</div>
+                <div class="date">27</div>
+                <div class="date">28</div>
+                <div class="date selected">29</div>
+                <div class="date">30</div>
+                <div class="date">31</div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <footer class="footer">
+    <p>Developed by <span>Amit</span></p>
+</footer>
+
+</body>
+
+</html>
