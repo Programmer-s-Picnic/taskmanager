@@ -1,85 +1,28 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SuperStar Task Manager</title>
-
-    <link rel="stylesheet" href="style.css">
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e8f6ff"><meta name="author" content="Champak Roy"><meta name="robots" content="index,follow,max-image-preview:large">
+<title>Task Manager + Node.js Hello World | Programmer's Picnic</title><meta name="description" content="A working browser-based Task Manager, live GoDaddy Node.js Hello World connection tester, and 0 to Infinity deployment lessons."><link rel="canonical" href="https://programmer-s-picnic.github.io/taskmanager/"><link rel="stylesheet" href="assets/site.css">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Programmer's Picnic"><meta property="og:title" content="Task Manager + Node.js Hello World | Programmer's Picnic"><meta property="og:description" content="A working browser-based Task Manager, live GoDaddy Node.js Hello World connection tester, and 0 to Infinity deployment lessons."><meta property="og:url" content="https://programmer-s-picnic.github.io/taskmanager/"><meta name="twitter:card" content="summary_large_image">
 </head>
-
-<body>
-
-<header class="header">
-    <h1 class="logo-title">
-        <img src="designpics/icon.jpg" alt="Logo" class="logo">
-        <span>SuperStar Task Manager</span>
-    </h1>
-
-    <div class="search-box">
-        <input type="search" name="search" placeholder="Search tasks...">
-    </div>
-
-    <nav class="header-buttons">
-
-        <a href="task_entry/index.html" class="nav-btn">Task Entry</a>
-        <a href="all_task/index.html" class="nav-btn">All Task</a>
-
-        <button type="button" class="logout-btn">Logout</button>
-    </nav>
-</header>
-
-
-    <main class="container">
-
-        <section class="task-section">
-            <h2>My Tasks</h2>
-
-            <div class="date-box">
-                <label for="task-date">Select Date</label>
-                <input type="date" id="task-date" name="date">
-            </div>
-
-            <div class="today-task">
-                <h2>Today Tasks</h2>
-
-                <div class="task-navigation">
-                    <button type="button" class="arrow-btn" id="prevTask">
-                        &#8592;
-                    </button>
-
-                    <button type="button" class="arrow-btn" id="nextTask">
-                        &#8594;
-                    </button>
-                </div>
-
-                <div class="today-task-content">
-                </div>
-            </div>
-
-            <div class="task-card">
-                <h3>Upcoming Tasks</h3>
-                <p>Your upcoming tasks will appear here.</p>
-            </div>
-        </section>
-
-        <section class="calendar-section">
-            <h2>Calendar</h2>
-
-            <div class="real-calendar">
-                <label for="calendar-date">Select Calendar Date</label>
-
-                <input type="date" id="calendar-date" name="calendar-date">
-                <p>Select a date using the calendar.</p>
-            </div>
-
-        </section>
-
-    </main>
-
-</body>
-
-</html>
+<body data-root="./"><header class="sitebar"><div class="wrap"><a class="brand" href="./index.html"><span class="brandmark" aria-hidden="true">✓</span>Programmer's Picnic · Task Manager</a><nav aria-label="Main navigation"><a href="./index.html" aria-current="page">Dashboard</a><a href="./task_entry/index.html">Task Entry</a><a href="./all_task/index.html">All Tasks</a><a href="./learn/index.html">0 → ∞ Course</a></nav></div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">Hands-on full stack learning · 0 → Infinity</div><h1>Task Manager meets <span>Node.js</span></h1><p class="lead">Plan your work in the browser, then connect this GitHub Pages website to a live Hello World server hosted on GoDaddy. Learn the entire process, one chapter at a time.</p><div class="buttons"><a class="button primary" href="#add-task">Create a task</a><a class="button" href="#api-lab">Test Node.js connection</a><a class="button" href="learn/index.html">Start the full lesson</a></div></div></section>
+<main class="wrap section"><section class="grid" aria-label="Task summary">
+<div class="stat"><strong data-count-all>0</strong><span>Total tasks in this browser</span></div>
+<div class="stat"><strong data-count-active>0</strong><span>Active tasks</span></div>
+<div class="stat"><strong data-count-done>0</strong><span>Completed tasks</span></div></section>
+<section class="grid two" style="margin-top:20px">
+<div class="card" id="add-task"><span class="tag">Level 0 · Browser-side data</span><h2 style="margin-top:10px">Add or update a task</h2><p class="muted">Practice forms, input handling and browser storage before moving to a backend database.</p><form data-task-form><div class="form-grid">
+<div class="form-field wide"><label for="task-name">Task name</label><input id="task-name" name="name" required maxlength="160" placeholder="e.g. Deploy Hello World app" autocomplete="off"></div>
+<div class="form-field wide"><label for="task-details">Notes (optional)</label><textarea id="task-details" name="details" maxlength="2000" placeholder="What needs to be done?"></textarea></div>
+<div class="form-field"><label for="task-date">Due date and time (optional)</label><input id="task-date" name="date" type="datetime-local"></div>
+<div class="form-field"><label for="task-status">Status</label><select id="task-status" name="status"><option>Pending</option><option>In Progress</option><option>Completed</option></select></div>
+</div><div class="buttons"><button type="submit" class="button primary"><span data-submit-label>Add task</span></button><button type="button" data-cancel-edit class="button outline">Cancel edit</button><button type="reset" class="button">Clear fields</button></div><p role="status" aria-live="polite" class="muted smalltext" data-form-feedback>Tasks are saved only in this browser, not on GoDaddy.</p></form></div>
+<div class="card" id="tasks"><span class="tag">Live browser demo</span><h2 style="margin-top:10px">Your tasks</h2><div class="form-grid"><div class="form-field"><label for="task-search">Search tasks</label><input type="search" id="task-search" placeholder="Search by title or notes"></div><div class="form-field"><label for="status-filter">Filter status</label><select id="status-filter"><option value="all">All statuses</option><option>Pending</option><option>In Progress</option><option>Completed</option></select></div></div><div data-task-list aria-live="polite"></div><a class="button outline" href="all_task/index.html">View all tasks</a></div>
+</section>
+<section class="card" id="api-lab"><span class="tag">Level 1 · Real HTTP request</span><h2 style="margin-top:10px">Connect GitHub Pages to GoDaddy Node.js</h2><p>The webpage makes a browser <code>fetch()</code> request to <code>/api/hello</code> on your published GoDaddy backend. If you still have the original plain-text Hello World server, the tester also checks <code>/</code>.</p><div class="api-line"><div class="form-field"><label for="api-url">Published GoDaddy Node.js base URL</label><input id="api-url" type="url" inputmode="url" autocomplete="url" placeholder="https://your-published-godaddy-domain.example" aria-describedby="api-help"></div><button type="button" id="connect-api" class="button primary">Connect &amp; test</button><button type="button" id="api-reset" class="button outline">Forget URL</button></div><p class="muted smalltext" id="api-help">Enter your <strong>published</strong> HTTPS URL, not a private GoDaddy preview link. Saved in this browser only.</p><div class="api-status" id="api-status" data-state="idle" role="status" aria-live="polite">No backend configured.</div><pre class="terminal" id="api-response" aria-label="Response from server">Enter your published GoDaddy URL to test the connection.</pre><div class="notice"><strong>Important:</strong> GitHub Pages hosts HTML, CSS and JavaScript only; Node.js runs separately on GoDaddy. Your backend must allow CORS for <code>https://programmer-s-picnic.github.io</code>. <a href="learn/index.html#ch4">Learn why →</a></div></section>
+<section class="card"><span class="tag">Guided path · Learn from 0 to ∞</span><h2 style="margin-top:10px">The learning roadmap</h2><div class="grid">
+<div><h3>0–2 · The foundation</h3><p class="muted">Hello World, Node server, HTTP, response, URL and <code>package.json</code>.</p></div>
+<div><h3>3–5 · Go live</h3><p class="muted">Upload to GoDaddy, deploy GitHub Pages, use HTTPS, CORS and <code>fetch()</code>.</p></div>
+<div><h3>6–∞ · Build real apps</h3><p class="muted">Tasks, input validation, REST, databases, authentication and production practices.</p></div></div><div class="buttons"><a class="button primary" href="learn/index.html">Open the complete 0 → ∞ lesson</a><a class="button" href="https://github.com/Programmer-s-Picnic/taskmanager/tree/main/backend" target="_blank" rel="noopener">View Node.js backend code</a></div></section>
+<section class="card"><h2>Where is the data stored?</h2><p><strong>Tasks:</strong> Saved in <code>localStorage</code> in the current browser. They do not automatically synchronise between devices and can be lost when browser storage is cleared. <strong>Hello World:</strong> Fetched from GoDaddy over HTTPS after you configure its published address. The supplied backend deliberately has no public write API, database, or login.</p><p class="muted">This distinction is essential for learning safely: we connect the two environments first, then introduce persistent, authenticated task APIs in the advanced chapters.</p></section>
+</main><footer><div class="wrap">Programmer's Picnic · Developed and maintained by Champak Roy · <a href="https://dsa.learnwithchampak.live/">Our DSA lessons</a> · <a href="https://editor.learnwithchampak.live/" target="_blank" rel="noopener">Code editor</a> · <a href="./learn/index.html">Learn Node.js</a></div></footer><script defer src="assets/app.js"></script></body></html>
