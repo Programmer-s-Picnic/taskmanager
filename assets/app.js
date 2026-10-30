@@ -178,7 +178,7 @@
     const submit = $("#connect-api");
     if (!input || !submit) return;
     const saved = read(API_KEY, "");
-    if (typeof saved === "string") input.value = saved;
+    if (typeof saved === "string") input.value = saved || "https://cserver.learnwithchampak.live";
     const status = $("#api-status");
     const response = $("#api-response");
     function show(state, line) {
@@ -203,7 +203,15 @@
         if (!result.ok) throw Error("Server returned HTTP " + result.status + ".");
         const type = result.headers.get("content-type") || "";
         const value = type.includes("application/json") ? await result.json() : await result.text();
-        show("ok", "Connected successfully — HTTP " + result.status);
+        if (typeof value === "string") {
+          if (!/^Hello World\b/.test(value.trim())) {
+            throw Error("The host responded, but not with the expected Hello World Node.js greeting.");
+          }
+        } else if (!value || value.connected !== true || typeof value.message !== "string" ||
+                   !value.message.includes("Hello World")) {
+          throw Error("A server responded, but this is not our expected Hello World API.");
+        }
+        show("ok", "Verified Hello World API — HTTP " + result.status);
         response.textContent = typeof value === "string" ? value : JSON.stringify(value, null, 2);
       } catch (error) {
         const message = error.name === "AbortError" ? "Request timed out." :
@@ -213,10 +221,10 @@
       } finally { clearTimeout(timeout); submit.disabled = false; }
     });
     $("#api-reset")?.addEventListener("click", () => {
-      input.value = "";
+      input.value = "https://cserver.learnwithchampak.live";
       try { localStorage.removeItem(API_KEY); } catch {}
-      show("idle", "No backend configured.");
-      response.textContent = "Enter your published GoDaddy URL to test the connection.";
+      show("idle", "Hosting address shown for testing; connection not verified.");
+      response.textContent = "Click Connect & test after publishing NodeUse on the selected GoDaddy URL.";
     });
   }
   function initLessons() {
